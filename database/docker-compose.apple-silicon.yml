@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  formations-db:
+    container_name: formations-mysql-db
+    image: jamielsharief/mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: "formations_db"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "password"
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - vol-formations-db:/var/lib/mysql
+volumes:
+  vol-formations-db:
