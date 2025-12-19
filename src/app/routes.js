@@ -13,6 +13,7 @@ const healthcheck = require("./platform/healthcheck");
 const getUsers = require("./controllers/users/getUsers");
 const getComments = require("./controllers/comments/getComments");
 const getFriendships = require("./controllers/friendships/getFriendships");
+const getMessages = require("./controllers/messages/getMessages");
 
 const router = express.Router();
 
@@ -39,4 +40,5 @@ router.get("/healthcheck", healthcheck);
 router.get("/users", getUsers);
 router.get("/comments/:postId", getComments);
 router.get("/friendships", getFriendships);
+router.get("/messages", getMessages);
 module.exports = router;
