@@ -1,24 +1,14 @@
-const { sql } = require("~root/lib/database");
-const { paginate, FILTERS } = require("~root/lib/paginate");
+const fetchMessages = require("~root/actions/messages/fetchMessages");
 
 const getMessages = async (req, res) => {
-  const resultset = await paginate({
-    basePath: req.path,
-    baseTable: "messages",
-    selectFields: ["undefined.undefined"],
-    joinStatements: [],
-    sortableAttributes: [],
-    filterableAttributes: [],
+  const { sender_id, receiver_id } = req.query;
 
-    sortBy: req.query.sort_by,
-    limit: req.query.page_size,
-    page: req.query.page, // "first" | "last" | null
-    direction: req.query.direction, // next | previous
-    filters: req.query.filters,
-    cursorValues: req.query.cursor
+  const { messages } = await fetchMessages({
+    senderId: sender_id ? parseInt(sender_id, 10) : undefined,
+    receiverId: receiver_id ? parseInt(receiver_id, 10) : undefined
   });
 
-  return res.send(resultset);
+  return res.send({ messages });
 };
 
 module.exports = getMessages;

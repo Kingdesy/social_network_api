@@ -14,6 +14,8 @@ const getUsers = require("./controllers/users/getUsers");
 const getComments = require("./controllers/comments/getComments");
 const getFriendships = require("./controllers/friendships/getFriendships");
 const getMessages = require("./controllers/messages/getMessages");
+const getMessages = require("./controllers/messages/getMessages");
+const getMessages = require("./controllers/messages/getMessages");
 
 const router = express.Router();
 
@@ -41,4 +43,5 @@ router.get("/users", getUsers);
 router.get("/comments/:postId", getComments);
 router.get("/friendships", getFriendships);
 router.get("/messages", getMessages);
+router.get("/messages", /*- TODO: auth middleware -*/ getMessages);
 module.exports = router;
