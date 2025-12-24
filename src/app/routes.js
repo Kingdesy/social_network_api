@@ -40,5 +40,5 @@ router.get("/healthcheck", healthcheck);
 router.get("/users", getUsers);
 router.get("/comments/:postId", getComments);
 router.get("/friendships", getFriendships);
-router.get("/messages", /*- TODO: auth middleware -*/ getMessages);
+router.get("/messages", /* TODO: auth middleware */ getMessages);
 module.exports = router;
