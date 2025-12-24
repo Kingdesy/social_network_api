@@ -1,7 +1,7 @@
 const selectMessages = require("./queries/selectMessages");
 
-const fetchMessages = async ({ senderId, receiverId } = {}) => {
-  const messages = await selectMessages({ senderId, receiverId });
+const fetchMessages = async ({ messageId }) => {
+  const messages = await selectMessages({ messageId });
 
   return { messages };
 };
