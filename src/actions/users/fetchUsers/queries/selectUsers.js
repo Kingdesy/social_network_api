@@ -5,6 +5,7 @@ const selectUsers = () => submitQuery`
     first_name,
     last_name,
     email,
+    profile_pic_url,
     user_type,
     created_at
   FROM

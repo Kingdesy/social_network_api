@@ -1,7 +1,7 @@
 const selectPosts = require("./queries/selectPosts");
 
-const fetchPosts = async ({ postId }) => {
-  const posts = await selectPosts({ postId });
+const fetchPosts = async () => {
+  const posts = await selectPosts();
 
   return { posts };
 };
