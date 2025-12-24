@@ -15,7 +15,6 @@ const getComments = require("./controllers/comments/getComments");
 const getFriendships = require("./controllers/friendships/getFriendships");
 const getMessages = require("./controllers/messages/getMessages");
 const getMessages = require("./controllers/messages/getMessages");
-const getMessages = require("./controllers/messages/getMessages");
 
 const router = express.Router();
 

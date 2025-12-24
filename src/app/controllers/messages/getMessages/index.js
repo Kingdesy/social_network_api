@@ -1,14 +1,19 @@
+const handleAPIError = require("~root/utils/handleAPIError");
 const fetchMessages = require("~root/actions/messages/fetchMessages");
+const newGetMessagesSchema = require("./schema/newGetMessagesSchema");
 
 const getMessages = async (req, res) => {
-  const { sender_id, receiver_id } = req.query;
+  const { messageId } = req.params;
 
-  const { messages } = await fetchMessages({
-    senderId: sender_id ? parseInt(sender_id, 10) : undefined,
-    receiverId: receiver_id ? parseInt(receiver_id, 10) : undefined
-  });
+  try {
+    await newGetMessagesSchema.validate({ messageId }, { abortEarly: false });
 
-  return res.send({ messages });
+    const { messages } = await fetchMessages({ messageId });
+
+    res.status(200).send({ messages });
+  } catch (err) {
+    handleAPIError(res, err);
+  }
 };
 
 module.exports = getMessages;
