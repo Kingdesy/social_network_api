@@ -13,6 +13,9 @@ const healthcheck = require("./platform/healthcheck");
 const getUsers = require("./controllers/users/getUsers");
 const getComments = require("./controllers/comments/getComments");
 const getFriendships = require("./controllers/friendships/getFriendships");
+const postFriendships = require("./controllers/friendships/postFriendships");
+const putFriendships = require("./controllers/friendships/putFriendships");
+const deleteFriendships = require("./controllers/friendships/deleteFriendships");
 
 const router = express.Router();
 
@@ -39,4 +42,7 @@ router.get("/healthcheck", healthcheck);
 router.get("/users", getUsers);
 router.get("/comments/:postId", getComments);
 router.get("/friendships", getFriendships);
+router.post("/friendships", postFriendships);
+router.put("/friendships", putFriendships);
+router.delete("/friendships", deleteFriendships);
 module.exports = router;
