@@ -14,6 +14,9 @@ const getUsers = require("./controllers/users/getUsers");
 const getComments = require("./controllers/comments/getComments");
 const getFriendships = require("./controllers/friendships/getFriendships");
 const getPosts = require("./controllers/posts/getPosts");
+const postPosts = require("./controllers/posts/postPosts");
+const putPosts = require("./controllers/posts/putPosts");
+const deletePosts = require("./controllers/posts/deletePosts");
 
 const router = express.Router();
 
@@ -41,4 +44,7 @@ router.get("/users", getUsers);
 router.get("/comments/:postId", getComments);
 router.get("/friendships", getFriendships);
 router.get("/posts/:postId", getPosts);
+router.post("/posts", /*- TODO: auth middleware -*/ postPosts);
+router.put("/posts", /*- TODO: auth middleware -*/ putPosts);
+router.delete("/posts", /*- TODO: auth middleware -*/ deletePosts);
 module.exports = router;
