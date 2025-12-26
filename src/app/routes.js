@@ -14,6 +14,9 @@ const getUsers = require("./controllers/users/getUsers");
 const getComments = require("./controllers/comments/getComments");
 const getFriendships = require("./controllers/friendships/getFriendships");
 const getMessages = require("./controllers/messages/getMessages");
+const postMessages = require("./controllers/messages/postMessages");
+const putMessages = require("./controllers/messages/putMessages");
+const deleteMessages = require("./controllers/messages/deleteMessages");
 
 const router = express.Router();
 
@@ -41,4 +44,7 @@ router.get("/users", getUsers);
 router.get("/comments/:postId", getComments);
 router.get("/friendships", getFriendships);
 router.get("/messages/:senderId/:receiverId", getMessages);
+router.post("/messages", postMessages);
+router.put("/messages", putMessages);
+router.delete("/messages", deleteMessages);
 module.exports = router;
